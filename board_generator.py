@@ -1,4 +1,5 @@
 import random
+import sys
 from colorama import init, Fore, Back, Style
 init()
 
@@ -86,5 +87,10 @@ def render_board_tiles():
 
 
 if __name__ == '__main__':
-    randomize_board_tiles()
-    render_board_tiles()
+    GEN_COUNT = int(sys.argv[1]) if len(sys.argv) > 1 and sys.argv[1].isdigit() else 1
+    for i in range(GEN_COUNT):
+        if i > 0:
+            print('=================')
+        randomize_board_tiles()
+        render_board_tiles()
+    
